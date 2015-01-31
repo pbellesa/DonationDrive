@@ -1,0 +1,30 @@
+<div class="container" ng-controller="DonateController as donate">
+    <div ng-show="donate.category == 0">
+        <h3><a href="/"><button class="btn btn-primary pull-right" >Back</button></a>Pick a Category</h3>
+        <div class="row donate text-center">
+            <div class="col-md-4 col-lg-4">
+                <div class="well">
+                    <button ng-click="donate.clothes()"  class="btn btn-primary"><img src="../img/shirt.png"></button>
+                    <h3>Clothes</h3>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4">
+                <div class="well">
+                        <button ng-click="donate.toys()" class="btn btn-primary"><img src="../img/toy.png"></button>
+                        <h3>Toys</h3>
+                    </div>
+                </div>
+            <div class="col-md-4 col-lg-4">
+                <div class="well">
+                    <button ng-click="donate.food()" class="btn btn-primary"><img src="../img/food.png"></button>
+                    <h3>Food</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="donate.category != 0">
+        
+        <h3><button class="btn btn-primary pull-right" ng-click="donate.category = 0">Back</button>{{donate.categoryName()}}</h3>
+        
+    </div>
+</div>

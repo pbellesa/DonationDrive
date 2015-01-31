@@ -1,1 +1,3 @@
-angular.module('sampleApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'NerdCtrl', 'NerdService', 'GeekCtrl', 'GeekService']);
+angular.module('donationDrive', ['ngRoute', 'appRoutes', 'MainCtrl', 'DonateCtrl', 'DonateService', 'DriveCtrl', 'DriveService']);
+
+

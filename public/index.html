@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<base href="/">
 
-	<title>Starter Node and Angular</title>
+	<title>Donation Drive</title>
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
@@ -16,19 +16,20 @@
 
 	<!-- ANGULAR CUSTOM -->
 	<script src="js/controllers/MainCtrl.js"></script>
-	<script src="js/controllers/NerdCtrl.js"></script>
-	<script src="js/services/NerdService.js"></script>
-	<script src="js/controllers/GeekCtrl.js"></script>
-	<script src="js/services/GeekService.js"></script>
+	<script src="js/controllers/DriveCtrl.js"></script>
+	<script src="js/services/DriveService.js"></script>
+	<script src="js/controllers/DonateCtrl.js"></script>
+	<script src="js/services/DonateService.js"></script>
 	<script src="js/appRoutes.js"></script>
 	<script src="js/app.js"></script>
+	
     
     
     
     
 </head>
-<body ng-app="sampleApp" ng-controller="NerdController">
-<div class="container">
+<body ng-app="donationDrive" ng-controller="MainController">
+
     <!--    Facebook Login-->
 	<script src="js/facebook.js"></script>
 
@@ -39,18 +40,18 @@
 		</div>
 		<ul class="nav navbar-nav">
             
-			<li><a href="/nerds">Nerds</a></li>
-			<li><a href="/geeks">Geeks</a></li>
+
 		</ul>
         <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-    </fb:login-button><
+    </fb:login-button>
 	</nav>
     
-    <div id="status">
-</div>
-	<!-- ANGULAR DYNAMIC CONTENT -->
-	<div ng-view></div>
 
-</div>
+	<!-- ANGULAR DYNAMIC CONTENT -->
+
+	<div ng-view></div>
+	
+	<script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.stellar.js"></script>
 </body>
 </html>
