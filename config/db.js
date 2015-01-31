@@ -1,3 +1,3 @@
 module.exports = {
-	url : 'mongodb://<user>:<pass>@mongo.onmodulus.net:27017/uw45mypu'
-}
+	url : 'mongodb://donation_driver_user:donation@ds053638.mongolab.com:53638/donation_driver'
+};

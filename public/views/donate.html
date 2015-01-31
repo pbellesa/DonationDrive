@@ -1,30 +1,74 @@
 <div class="container" ng-controller="DonateController as donate">
-    <div ng-show="donate.category == 0">
+    <div > <!--ng-show="donate.category == 0"-->
         <h3><a href="/"><button class="btn btn-primary pull-right" >Back</button></a>Pick a Category</h3>
-        <div class="row donate text-center">
-            <div class="col-md-4 col-lg-4">
-                <div class="well">
-                    <button ng-click="donate.clothes()"  class="btn btn-primary"><img src="../img/shirt.png"></button>
-                    <h3>Clothes</h3>
+        <div class="row donate" >
+            <div class="row {{ donorContainer[0] }}">
+                <h3>Clothes</h3>
+                <div class="animate-switch" ng-if="!category[0]"
+                    ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                    <button ng-click="donate.enterQuantity(0)" class="btn btn-primary {{ clothesAnimate }}" ><img  src="../img/shirt.png"></button>
+
                 </div>
             </div>
-            <div class="col-md-4 col-lg-4">
-                <div class="well">
-                        <button ng-click="donate.toys()" class="btn btn-primary"><img src="../img/toy.png"></button>
-                        <h3>Toys</h3>
+            <div class="form-choice" ng-if="category[0]" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">Clothes Choices
+                <div class="qunatity_row">
+                    <img src="../img/shopping-basket.jpg">
+                    <label>X</label>
+                    <input type="text" />
+                </div>
+                <div>
+                    <button ng-click="donate.submitQuantity(0)" class="btn" value="">Submit</button>
+                    <button ng-click="donate.exitView(0)" class="btn" value="">Cancel</button>
+                </div>
+            </div>
+
+            <div class="row {{ donorContainer[1] }}">
+                <!-- <div class="donar-clothes-container"> -->
+                <h3>Toys</h3>
+                <div class="animate-switch" ng-if="!category[1]"
+                    ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                    <button ng-click="donate.enterQuantity(1)" class="btn btn-primary {{ clothesAnimate }}" ><img  src="../img/toy.png"></button>
+                </div>
+            </div>
+
+            <div class="form-choice" ng-if="category[1]" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">Toys Choices
+                <div class="qunatity_row">
+                    <img src="../img/shopping-basket.jpg">
+                    <label>X</label>
+                    <input type="text" />
+                </div>
+                <div>
+                    <button ng-click="donate.submitQuantity(1)" class="btn">Submit</button>
+                    <button ng-click="donate.exitView(1)" class="btn">Cancel</button>
+                </div>
+            </div>
+
+            <div class="row {{ donorContainer[2] }}">
+                <h3>Food</h3>
+                <div class="animate-switch" ng-if="!category[2]"
+                    ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+                    <button ng-click="donate.enterQuantity(2)" class="btn btn-primary {{ clothesAnimate }}" ><img  src="../img/food.png"></button>
+                </div>
+            </div>
+
+            <div class="form-choice" ng-if="category[2]" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">Food Choices
+                <div class="qunatity_row">
+                    <img src="../img/shopping-basket.jpg">
+                    <label>X</label>
+                    <div>
+                        <input type="text" size="5" />
                     </div>
                 </div>
-            <div class="col-md-4 col-lg-4">
-                <div class="well">
-                    <button ng-click="donate.food()" class="btn btn-primary"><img src="../img/food.png"></button>
-                    <h3>Food</h3>
+                <div>
+                    <button ng-click="donate.submitQuantity(2)" class="btn" value="Submit">Submit</button>
+                    <button ng-click="donate.exitView(2)" class="btn" value="Cancel">Cancel</button>
                 </div>
             </div>
         </div>
     </div>
-    <div ng-show="donate.category != 0">
-        
+    <!-- <div ng-show="donate.category != 0">
+
         <h3><button class="btn btn-primary pull-right" ng-click="donate.category = 0">Back</button>{{donate.categoryName()}}</h3>
-        
-    </div>
+
+    </div> -->
 </div>

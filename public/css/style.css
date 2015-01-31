@@ -1,11 +1,9 @@
 /*body { padding-top:30px; }*/
 
 .jumbotron {
-    /*margin-bottom: 0px;*/
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/hero.jpg);
     background-position: 0% 75%;
     background-size: cover;
-    /*background-attachment: fixed;*/
     background-repeat: no-repeat;
     color: white;
     text-shadow: black 0.3em 0.3em 0.3em;
@@ -16,15 +14,104 @@
     border-radius: 0;
 }
 
-.home img{
+.home img {
     height: 150px;
     padding: 10px;
 }
 
-.donate img{
+.donate div {
+    overflow: hidden;
+}
+
+.donate img {
     height: 150px;
     width:  150px;
     padding: 10px;
+    /*-webkit-transition: width 1.5s;*/
+    /*-webkit-transition: height 1.5s;*/
+}
+
+.form-choice {
+    float: right;
+    min-height: 150px;
+    width: 100%;
+    border: 2px solid grey;
+    /*-webkit-animation: grow 0.75s ease;*/
+}
+
+.animate-enter {
+    background-color: #F00;
+    /*-webkit-animation: grow 2.5s ease;*/
+}
+
+.animate-enter.animate-enter-active {
+    background-color: #666;
+    /*-webkit-animation: grow 2.5s ease;*/
+}
+
+.animate-leave {
+    /*-webkit-animation: shrink 2.5s ease;*/
+    background-color: #666;
+}
+
+.animate-leave.animate-enter-leave {
+    background-color: #F00;
+    /*-webkit-animation: shrink 2.5s ease;*/
+    /*-webkit-transition: 1s linear all;  Chrome
+    transition: 1s linear all;*/
+}
+
+div.qunatity_row {
+    overflow: hidden;
+}
+
+div.qunatity_row * {
+    float: left;
+    border: 2px solid black;
+}
+
+div.qunatity_row div {
+    border: 2px solid black;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    text-align: center;
+    /*width: 200px;*/
+}
+
+div.qunatity_row div > input {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5em;
+
+}
+
+@-webkit-keyframes move {
+    0% {
+        /*visibility: hidden;*/
+        -webkit-transform: translateX(-170%);
+    }
+    100% {
+        -webkit-transform: translateX(0px);
+    }
+}
+
+@-webkit-keyframes grow {
+    0% {
+       -webkit-transform: scale(0.1,0.7);
+    }
+    100% {
+        -webkit-transform: scale(1,1);
+    }
+}
+
+@-webkit-keyframes shrink {
+    0% {
+        -webkit-transform: scale(1,1);
+    }
+    100% {
+        -webkit-transform: scale(0.1,0.7);
+    }
 }
 
 /*.well{
