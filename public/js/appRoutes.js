@@ -15,7 +15,12 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 
 		.when('/drive', {
 			templateUrl: 'views/drive.html',
-			controller: 'DriveController'	
+			controller: 'DriveController'
+		})
+
+		.when('/driver_map', {
+			templateUrl: 'views/mapView.html',
+			controller: 'MapController'
 		});
 
 	$locationProvider.html5Mode(true);

@@ -9,7 +9,7 @@
 	<!-- CSS -->
 	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
-
+	<link rel="stylesheet" href="css/map_styles.css">
 	<!-- JS -->
 	<script src="libs/angular/angular.min.js"></script>
 	<script src="libs/angular-route/angular-route.min.js"></script>
@@ -20,13 +20,14 @@
 	<script src="js/services/DriveService.js"></script>
 	<script src="js/controllers/DonateCtrl.js"></script>
 	<script src="js/services/DonateService.js"></script>
+	<script src="js/controllers/MapCtrl.js"></script>
 	<script src="js/appRoutes.js"></script>
 	<script src="js/app.js"></script>
-	
-    
-    
-    
-    
+
+	<!-- Google Maps -->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization,places"></script>
+
+
 </head>
 <body ng-app="donationDrive" ng-controller="MainController">
 
@@ -39,18 +40,18 @@
 			<a class="navbar-brand" href="/">Donation Drive</a>
 		</div>
 		<ul class="nav navbar-nav">
-            
+
 
 		</ul>
         <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
     </fb:login-button>
 	</nav>
-    
+
 
 	<!-- ANGULAR DYNAMIC CONTENT -->
 
 	<div ng-view></div>
-	
+
 	<script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.stellar.js"></script>
 </body>
