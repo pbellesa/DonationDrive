@@ -1,0 +1,2 @@
+// Parallax
+// $('.jumbotron').stellar();
