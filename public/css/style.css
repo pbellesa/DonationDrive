@@ -117,3 +117,12 @@ div.qunatity_row div > input {
 /*.well{
     background-color: rgb(22, 105, 173);
 }*/
+
+/*Map View*/
+
+.map {
+    margin-top: 47px;
+}
+input {
+    width: 80%;
+}
