@@ -1,5 +1,6 @@
 angular.module('DonateCtrl', []).controller('DonateController', function($scope, $http) {
-    var donationQuantities = {}; // 1 Clothes, 2 Toys, 3 Food
+    var donationQuantities = {
+    }; // 1 Clothes, 2 Toys, 3 Food
 
     $scope.category = [
         false,
@@ -7,7 +8,9 @@ angular.module('DonateCtrl', []).controller('DonateController', function($scope,
         false
     ];
 
-    $scope.donationQuantitySpinner = [0, 0, 0];
+    this.itemQuantity = 0;
+
+    this.donationQuantitySpinner = [0, 0, 0];
 
     $scope.donorContainer = [
         "col-md-4 col-lg-4",
@@ -23,11 +26,15 @@ angular.module('DonateCtrl', []).controller('DonateController', function($scope,
     };
 
     this.submitQuantity = function(row) {
-        var quantity = $scope.donationQuantitySpinner[row];
-        var donationQuantities = addQuantityToModel(row, quantity);
+        var quantity = this.donationQuantitySpinner[row];
 
+        var donationQuantities = addQuantityToModel(row + 1, quantity);
+
+        // Hides the current view
         $scope.category[row] = false;
 
+        //console.dir(donationQuantities);
+        submitDonation(donationQuantities);
     };
 
     this.exitView = function(row) {
@@ -40,24 +47,23 @@ angular.module('DonateCtrl', []).controller('DonateController', function($scope,
             toys: 0,
             food: 0
         };
-
-        switch(row+1){
+        switch(row){
             case 1:
-                donationItem.clothes = quantity;
+                donationItem.clothes = +quantity;
                 break;
             case 2:
-                donationItem.toys = quantity;
+                donationItem.toys = +quantity;
                 break;
             case 3:
-                donationItem.foods = quantity;
+                donationItem.foods = +quantity;
                 break;
         }
-
+        console.log(donationItem);
         return donationItem;
     }
 
-    function submitDonation() {
-        $http.post('/add/donor/', donationQuantities)
+    function submitDonation(donationQuantities) {
+        $http.post('/submitItems/' + 1, donationQuantities)
             .success(function(data) {
             //$scope.formData = {}; // clear the form so our user is ready to enter another
             //$scope.todos = data;
