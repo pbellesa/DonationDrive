@@ -4,37 +4,37 @@ angular.module('MapCtrl', []).controller('MapController', function($scope){
 
   //PLACEHOLDER FOR DATABASE
   $scope.pickup = [
-      { 
+      {
         address: "Location 1",
-        latitude: 43.658425, 
+        latitude: 43.658425,
         longitude: -79.395080,
         distance: 0.0,
         marker: {}
       },
-      { 
+      {
         address: "Location 2",
         latitude: 43.663579,
         longitude: -79.404608,
         distance: 0.0,
         marker: {}
       },
-      { 
+      {
         address: "Location 3",
-        latitude: 43.666218, 
+        latitude: 43.666218,
         longitude: -79.400702,
         distance: 0.0,
         marker: {}
       },
-      { 
+      {
         address: "Location 4",
-        latitude: 43.666816, 
+        latitude: 43.666816,
         longitude: -79.393921,
         distance: 0.0,
         marker: {}
       },
-      { 
+      {
         address: "Location 5",
-        latitude: 43.662731, 
+        latitude: 43.662731,
         longitude: -79.391132,
         distance: 0.0,
         marker: {}
@@ -43,7 +43,7 @@ angular.module('MapCtrl', []).controller('MapController', function($scope){
   ];
 
   this.initialize = function(position){
-    
+
 
     $scope.currentPosition = {latitude: position.coords.latitude, longitude: position.coords.longitude }
     console.log($scope.currentPosition);
@@ -67,7 +67,7 @@ angular.module('MapCtrl', []).controller('MapController', function($scope){
 
     autocomplete = new google.maps.places.Autocomplete(input, options);
 
-    
+
     // Allow user to click off donation picks
 
     // display donations on map
@@ -125,19 +125,19 @@ angular.module('MapCtrl', []).controller('MapController', function($scope){
   }
 
   $scope.distanceTo = function(LatLng1, LatLng2 ){
-    var PI = 3.14159265359
-    var radius = 6371.01 // Radius of the earth in Km
+    var PI = 3.14159265359;
+    var radius = 6371.01; // Radius of the earth in Km
 
     //Convert to radians
     var radLatLng1 = {
       latitude: LatLng1.latitude * PI / 180,
       longitude: LatLng1.longitude * PI / 180
-    }
+    };
 
     var radLatLng2 = {
       latitude: LatLng2.latitude * PI / 180,
       longitude: LatLng2.longitude * PI / 180
-    }
+    };
 
     // Return distance in same measure of radius
     return Math.acos(
@@ -145,25 +145,38 @@ angular.module('MapCtrl', []).controller('MapController', function($scope){
       Math.cos(radLatLng1.latitude) * Math.cos(radLatLng2.latitude) *
       Math.cos(radLatLng1.longitude - radLatLng2.longitude)) * radius;
 
-  }
+  };
 
-  
+
   $scope.jumpMarker = function(index){
       var marker = $scope.pickup[index].marker;
-      if (marker.getAnimation() != null) {
+      if (marker.getAnimation() !== null) {
         marker.setAnimation(null);
       } else {
         marker.setAnimation(google.maps.Animation.BOUNCE);
       }
       setTimeout(function(){ marker.setAnimation(null); }, 750);
   }
-  
+
   $scope.pickupDetails = function(){
     $scope.pickupShow = false;
-    
+
   }
 
   $scope.test = $scope.distanceTo($scope.pickup[1], $scope.pickup[2]);
 
+  // function getLocation() {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(showPosition);
+  //   } else {
+  //     alert("Geolocation is not supported by this browser.");
+  //   }
+  // }
+
+  // function showPosition(position) {
+  //   var lat = position.coords.latitude;
+  //   var lng = position.coords.longitude;
+  //   this.map.setCenter(new google.maps.LatLng(lat, lng));
+  // }
 
 });

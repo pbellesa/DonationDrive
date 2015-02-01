@@ -21,42 +21,42 @@
 	<script src="js/controllers/DonateCtrl.js"></script>
 	<script src="js/services/DonateService.js"></script>
 	<script src="js/controllers/MapCtrl.js"></script>
+	<script src="js/services/AuthenticateService.js"></script>
 	<script src="js/appRoutes.js"></script>
 	<script src="js/app.js"></script>
 
 	<!-- Google Maps -->
-	
-
-
 </head>
-<body ng-app="donationDrive" ng-controller="MainController">
+<body ng-app="donationDrive" >
 
     <!--    Facebook Login-->
 	<script src="js/facebook.js"></script>
 
 	<!-- HEADER -->
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse" ng-show="showMainHeader">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="/">Donation Drive</a>
 		</div>
 		<ul class="nav navbar-nav">
-
-
 		</ul>
-		<a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook">
-		</span> Facebook</a>
         <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
     </fb:login-button> -->
 	</nav>
 
+	<!-- Annoying necessicity due to the Facebook api bug -->
+	<script type="text/javascript">
+    if (window.location.hash && window.location.hash == '#_=_') {
+      window.location.hash = '';
+    }
+	</script>
 
 	<!-- ANGULAR DYNAMIC CONTENT -->
 
 	<div ng-view></div>
 
 	<script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
-	
+
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization,places"></script>
-	
+
 </body>
 </html>

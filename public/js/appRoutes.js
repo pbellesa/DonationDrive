@@ -1,4 +1,4 @@
-angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider, $http) {
 
 	$routeProvider
 
@@ -11,6 +11,15 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		.when('/donate', {
 			templateUrl: 'views/donate.html',
 			controller: 'DonateController'
+		})
+
+		.when('/reauthenticate', {
+			templateUrl: 'views/reauthenticate.html'
+			//controller: 'ReAuthenticate'
+		})
+
+		.when('/login', {
+			templateUrl: 'views/login.html'
 		})
 
 		.when('/drive', {
